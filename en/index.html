@@ -41,8 +41,10 @@
   .tag.hot { border-color:var(--accent); color:var(--accent); background:transparent; }
   .lang { display:flex; justify-content:space-between; border-bottom:1px dashed var(--line); padding:4px 0; }
   .lang span { color:var(--muted); }
-  .two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
   .two .card { margin:0; }
+  .qr { display:flex; gap:24px; justify-content:center; flex-wrap:wrap; text-align:center; color:var(--muted); font-size:13px; }
+  .qr img { display:block; width:150px; height:150px; margin:0 auto 6px; background:#fff; border-radius:10px; image-rendering:pixelated; }
   .btn { display:block; text-align:center; padding:14px; border-radius:12px; background:var(--text); color:var(--card);
          font-weight:600; text-decoration:none; margin-top:16px; }
   @media (max-width: 560px) {
@@ -92,6 +94,11 @@
     </section>
     <section class="card"><h2>Languages</h2><div class="lang"><b>Romanian</b><span>native</span></div><div class="lang"><b>Russian</b><span>fluent</span></div><div class="lang"><b>English</b><span>technical docs</span></div></section>
   </div>
+
+  <section class="card qr">
+    <figure style="margin:0"><img src="../qr/cv-link.png" alt="QR: open the CV"><figcaption>QR: open the CV</figcaption></figure>
+    <figure style="margin:0"><img src="../qr/contact-vcard.png" alt="QR: save contact"><figcaption>QR: save contact</figcaption></figure>
+  </section>
 
   <a class="btn" href="../pdf/CV_Victor_Croitoru_iOS_EN.pdf">Download CV (PDF)</a>
 </main>
