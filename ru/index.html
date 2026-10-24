@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Виктор Кроитору: iOS-разработчик · Swift, SwiftUI · Web</title>
+<meta name="description" content="iOS-разработчик · Swift, SwiftUI · Web. Кишинёв, Молдова.">
+<link rel="alternate" hreflang="en" href="https://victor-dev-coder.github.io/cv/"><link rel="alternate" hreflang="ru" href="https://victor-dev-coder.github.io/cv/ru/"><link rel="alternate" hreflang="ro" href="https://victor-dev-coder.github.io/cv/ro/"><link rel="alternate" hreflang="x-default" href="https://victor-dev-coder.github.io/cv/">
+<script>try{var t=localStorage.getItem("cv-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}</script>
+<style>
+  :root { color-scheme: dark; --bg:#1b1b1d; --card:#252528; --text:#efefef; --muted:#a3a3a8; --line:#38383c; --accent:#ff7a52;
+          --chip:#2e2e32; --seek-bg:#3a2620; --seek-line:#5a3a30; --live:#6fdca2; --live-bg:#1d3328; --live-line:#2f6a4a; --btn-text:#1b1b1d; }
+  :root[data-theme="light"] { color-scheme: light; --bg:#f0efea; --card:#fff; --text:#2b2b2b; --muted:#6c6c6c; --line:#e6e4de; --accent:#e8532b;
+          --chip:#f6f5f1; --seek-bg:#fdeee8; --seek-line:#f5cfc2; --live:#1f6f45; --live-bg:#eefaf3; --live-line:#bfe3cf; --btn-text:#fff; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 -apple-system,"Segoe UI",Roboto,Arial,sans-serif; }
+  main { max-width:1180px; margin:0 auto; padding:24px 16px 48px; }
+  a { color:inherit; }
+  .bar { display:flex; gap:8px; justify-content:flex-end; align-items:center; margin-bottom:16px; }
+  .langs { display:flex; gap:8px; }
+  .langs a, .theme { padding:6px 14px; border:1px solid var(--line); border-radius:99px; text-decoration:none; color:var(--muted);
+                     font-weight:600; font-size:14px; background:transparent; }
+  .langs a[aria-current="page"] { background:var(--text); border-color:var(--text); color:var(--card); }
+  .theme { display:flex; align-items:center; padding:6px 10px; cursor:pointer; font:inherit; }
+  .theme svg { width:18px; height:18px; fill:currentColor; }
+  .theme .sun { display:block; } .theme .moon { display:none; }
+  :root[data-theme="light"] .theme .sun { display:none; } :root[data-theme="light"] .theme .moon { display:block; }
+  .grid { display:grid; gap:16px; grid-template-columns:minmax(0,1fr);
+          grid-template-areas:"head" "about" "seek" "main" "side"; }
+  .head { grid-area:head; } .about { grid-area:about; } .seek { grid-area:seek; }
+  .main { grid-area:main; } .side { grid-area:side; }
+  .main, .side { display:flex; flex-direction:column; gap:16px; min-width:0; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; }
+  .seek { background:var(--seek-bg); border-color:var(--seek-line); }
+  .head { display:flex; gap:20px; align-items:center; justify-content:space-between; flex-direction:column-reverse; align-items:flex-start; }
+  .head img { width:112px; height:112px; border-radius:20px; object-fit:cover; border:2px solid var(--accent); flex:none; }
+  h1 { margin:0; font-size:clamp(28px,4vw,40px); line-height:1.1; }
+  .role { margin:6px 0 0; color:var(--muted); }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .chip { font-size:13px; padding:4px 12px; border:1px solid var(--line); border-radius:99px; background:var(--chip); text-decoration:none; }
+  .chip.live { color:var(--live); border-color:var(--live-line); background:var(--live-bg); }
+  h2 { margin:0 0 12px; font-size:13px; letter-spacing:1.6px; text-transform:uppercase; color:var(--accent); }
+  p { margin:0; }
+  ul { margin:0; padding-left:20px; }
+  li { margin-bottom:6px; }
+  .job h3 { margin:0; font-size:20px; }
+  .meta { color:var(--muted); font-size:14px; margin:2px 0 12px; }
+  .group { margin-bottom:14px; }
+  .gname { font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+  .tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .tag { font-size:13px; padding:2px 10px; border:1px solid var(--line); border-radius:8px; background:var(--chip); }
+  .tag.hot { border-color:var(--accent); color:var(--accent); background:transparent; }
+  .lang { display:flex; justify-content:space-between; border-bottom:1px dashed var(--line); padding:4px 0; }
+  .lang span { color:var(--muted); }
+  .two { display:grid; grid-template-columns:minmax(0,1fr); gap:16px; }
+  .btn { display:block; text-align:center; padding:14px; border-radius:12px; background:var(--text); color:var(--btn-text);
+         font-weight:600; text-decoration:none; margin:16px auto 0; max-width:420px; }
+
+  @media (min-width: 640px) { .two { grid-template-columns:1fr 1fr; } main { padding:32px 24px 56px; } }
+  @media (min-width: 1000px) {
+    .grid { grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); gap:20px;
+            grid-template-areas:"head head" "about seek" "main side"; }
+    .main, .side { gap:20px; }
+    .head { flex-direction:row; align-items:center; padding:32px 36px; }
+    .head img { width:140px; height:140px; }
+    .card { padding:28px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="bar">
+    <nav class="langs" aria-label="Language"><a href="../index.html" hreflang="en">EN</a><a href="../ru/index.html" aria-current="page" hreflang="ru">RU</a><a href="../ro/index.html" hreflang="ro">RO</a></nav>
+    <button class="theme" type="button" aria-label="Сменить тему" title="Сменить тему">
+      <svg class="sun" viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM1 11h3v2H1v-2zm19 0h3v2h-3v-2zM4.2 5.6l1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1zm12.1 12.1 1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1zM5.6 19.8l-1.4-1.4 2.1-2.1 1.4 1.4-2.1 2.1zM18.4 4.2l1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1z"/></svg>
+      <svg class="moon" viewBox="0 0 24 24"><path d="M21 14.5A9 9 0 0 1 9.5 3a9 9 0 1 0 11.5 11.5z"/></svg>
+    </button>
+  </div>
+
+  <div class="grid">
+  <header class="card head">
+    <div>
+      <h1>Виктор Кроитору</h1>
+      <p class="role">iOS-разработчик · Swift, SwiftUI · Web</p>
+      <div class="chips">
+        <span class="chip live">Открыт к предложениям</span>
+        <span class="chip">Кишинёв, Молдова</span>
+        <span class="chip">Удалённая работа</span>
+        <a class="chip" href="https://www.linkedin.com/in/victor-croitoru-dev001">linkedin.com/in/victor-croitoru-dev001</a>
+        <a class="chip" href="https://www.facebook.com/victor.croitoru.dev">facebook.com/victor.croitoru.dev</a>
+      </div>
+    </div>
+    <img src="../photo.jpg" alt="Виктор Кроитору">
+  </header>
+
+  <section class="card about"><h2>Обо мне</h2><p>iOS-разработчик, 2,5 года коммерческого опыта (март 2024 — сентябрь 2026). Разрабатывал приложения-утилиты для iPhone на Swift и SwiftUI: собирал экраны с нуля по макетам, подключал серверные API, хранил данные через Core Data и SwiftData, делал виджеты для домашнего экрана. Готов работать и над веб-проектами: лендинги, сайты. Работаю с Claude Code.</p></section>
+
+  <section class="card seek"><h2>Что ищу</h2><ul><li>Удалённую работу на полный день: iOS-разработка (Swift, SwiftUI) и веб-проекты (лендинги, сайты). Работаю с Claude Code. Готов работать по часовому поясу команды.</li><li>Проекты на Swift и SwiftUI, где можно расширять набор технологий.</li><li>Команду с код-ревью, чтобы вырасти до уровня Middle+.</li></ul></section>
+
+  <div class="main">
+  <section class="card job">
+    <h2>Опыт работы</h2>
+    <h3>iOS-разработчик</h3>
+    <div class="meta">Midnight.Works · Кишинёв, Молдова · март 2024 — сентябрь 2026</div>
+    <ul><li>Разрабатывал приложения-утилиты для iPhone на Swift и SwiftUI.</li><li>Собирал экраны с нуля по макетам Figma: навигация, состояния загрузки и ошибок, адаптация под разные размеры экранов.</li><li>Подключал серверные REST API: работа с JSON, асинхронные запросы через async/await, обработка ошибок сети.</li><li>Хранил данные на устройстве через Core Data и SwiftData, в том числе для работы приложения без интернета.</li><li>Интегрировал сторонние сервисы: Firebase, PushWoosh, Dropbox.</li><li>Делал виджеты для домашнего экрана (WidgetKit).</li><li>Работал в команде, задачи получал в Jira.</li></ul>
+  </section>
+
+  <div class="two">
+    <section class="card"><h2>Образование</h2>
+      <p><b>Технический университет Молдовы</b></p>
+      <div class="meta">Кишинёв, Молдова · 2017 — 2021</div>
+      <p><b>Инженер.</b> Специальность «Безопасность электронных и телекоммуникационных систем».</p>
+    </section>
+    <section class="card"><h2>Языки</h2><div class="lang"><b>Румынский</b><span>родной</span></div><div class="lang"><b>Русский</b><span>свободно</span></div><div class="lang"><b>Английский</b><span>документация</span></div></section>
+  </div>
+
+  </div>
+
+  <aside class="side">
+  <section class="card"><h2>Навыки</h2><div class="group"><div class="gname">Язык и фреймворки</div><div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">WidgetKit</span><span class="tag">Foundation</span></div></div><div class="group"><div class="gname">Хранение данных</div><div class="tags"><span class="tag">Core Data</span><span class="tag">SwiftData</span></div></div><div class="group"><div class="gname">Асинхронность</div><div class="tags"><span class="tag">async/await</span><span class="tag">Swift Concurrency</span></div></div><div class="group"><div class="gname">Сеть и сервисы</div><div class="tags"><span class="tag">REST API</span><span class="tag">JSON</span><span class="tag">URLSession</span><span class="tag">Firebase</span><span class="tag">PushWoosh</span><span class="tag">Dropbox</span></div></div><div class="group"><div class="gname">Инструменты</div><div class="tags"><span class="tag">Xcode</span><span class="tag">Git</span><span class="tag">Swift Package Manager</span><span class="tag">Jira</span></div></div><div class="group"><div class="gname">Дизайн и отладка</div><div class="tags"><span class="tag">Figma</span><span class="tag">Postman</span></div></div><div class="group"><div class="gname">Веб</div><div class="tags"><span class="tag hot">Лендинги</span><span class="tag hot">сайты</span><span class="tag hot">веб-проекты</span></div></div><div class="group"><div class="gname">ИИ-инструменты</div><div class="tags"><span class="tag">Claude Code</span></div></div></section>
+
+  </aside>
+  </div>
+
+  <a class="btn" href="../pdf/CV_Victor_Croitoru_iOS_RU.pdf">Скачать резюме (PDF)</a>
+</main>
+<script>
+  document.querySelector(".theme").addEventListener("click", function () {
+    var root = document.documentElement;
+    var next = root.dataset.theme === "light" ? "dark" : "light";
+    root.dataset.theme = next;
+    try { localStorage.setItem("cv-theme", next); } catch (e) {}
+  });
+</script>
+</body>
+</html>
