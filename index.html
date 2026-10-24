@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Victor Croitoru: резюме</title>
+<style>
+  :root { --bg:#f4f4f4; --card:#fff; --text:#2e2e2e; --muted:#6b6b6b; --accent:#3a3a3a; --line:#e2e2e2; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#1c1c1e; --card:#2a2a2d; --text:#f0f0f0; --muted:#a4a4a8; --accent:#e6e6e6; --line:#3a3a3e; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.55 -apple-system,"Segoe UI",Roboto,Arial,sans-serif; }
+  main { max-width:560px; margin:0 auto; padding:40px 16px 56px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:28px 24px; }
+  h1 { margin:0; font-size:28px; line-height:1.15; text-transform:uppercase; letter-spacing:.4px; }
+  .role { margin:8px 0 0; color:var(--muted); font-weight:600; font-size:13px; letter-spacing:1.6px; text-transform:uppercase; }
+  .about { margin:20px 0 0; }
+  .langs { display:flex; gap:8px; margin:0 0 24px; }
+  .langs button { flex:1; padding:8px 0; border:1px solid var(--line); border-radius:10px; background:transparent;
+                  color:var(--muted); font:inherit; font-weight:600; cursor:pointer; }
+  .langs button[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:var(--card); }
+  .btn { display:block; margin:24px 0 0; padding:14px 16px; text-align:center; font-weight:600; text-decoration:none;
+         color:var(--card); background:var(--accent); border-radius:12px; }
+  .links { margin:20px 0 0; padding:0; list-style:none; }
+  .links a { color:var(--text); }
+  [lang-text] { display:none; }
+  [lang-text].on { display:block; }
+  .links li[lang-text].on { display:list-item; }
+  footer { margin-top:18px; text-align:center; color:var(--muted); font-size:13px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <div class="langs" role="group" aria-label="Language">
+      <button data-l="ru" aria-pressed="true">RU</button>
+      <button data-l="en" aria-pressed="false">EN</button>
+      <button data-l="ro" aria-pressed="false">RO</button>
+    </div>
+    <h1>Victor Croitoru</h1>
+    <p class="role" lang-text="ru">iOS-разработчик · Swift, SwiftUI · Web</p>
+    <p class="role" lang-text="en">iOS Developer · Swift, SwiftUI · Web</p>
+    <p class="role" lang-text="ro">Dezvoltator iOS · Swift, SwiftUI · Web</p>
+    <p class="about" lang-text="ru">Кишинёв, Молдова. Ищу проекты по iOS-разработке, а также лендинги, сайты и автоматизацию (Telegram-боты).</p>
+    <p class="about" lang-text="en">Chișinău, Moldova. Looking for iOS development projects, as well as landing pages, websites and automation (Telegram bots).</p>
+    <p class="about" lang-text="ro">Chișinău, Moldova. Caut proiecte de dezvoltare iOS, precum și pagini de prezentare, site-uri și automatizări (boți Telegram).</p>
+    <a class="btn" lang-text="ru" href="pdf/CV_Victor_Croitoru_iOS_RU.pdf">Скачать резюме (PDF)</a>
+    <a class="btn" lang-text="en" href="pdf/CV_Victor_Croitoru_iOS_EN.pdf">Download CV (PDF)</a>
+    <a class="btn" lang-text="ro" href="pdf/CV_Victor_Croitoru_iOS_RO.pdf">Descarcă CV (PDF)</a>
+    <ul class="links">
+      <li><a href="https://www.linkedin.com/in/victor-croitoru-dev001">LinkedIn</a></li>
+      <li><a href="https://www.facebook.com/victor.croitoru.dev">Facebook</a></li>
+    </ul>
+  </div>
+  <footer>victor-dev-coder.github.io/cv</footer>
+</main>
+<script>
+  (function () {
+    var buttons = document.querySelectorAll(".langs button");
+    function set(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[lang-text]").forEach(function (el) {
+        el.classList.toggle("on", el.getAttribute("lang-text") === lang);
+      });
+      buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.l === lang)); });
+      try { localStorage.setItem("cv-lang", lang); } catch (e) {}
+    }
+    buttons.forEach(function (b) { b.addEventListener("click", function () { set(b.dataset.l); }); });
+    var saved = null;
+    try { saved = localStorage.getItem("cv-lang"); } catch (e) {}
+    var nav = (navigator.language || "ru").slice(0, 2);
+    set(["ru", "en", "ro"].indexOf(saved) >= 0 ? saved : ["en", "ro"].indexOf(nav) >= 0 ? nav : "ru");
+  })();
+</script>
+</body>
+</html>
